@@ -24,4 +24,9 @@ outputs/*
 .DS_Store
 Thumbs.db
 .vscode/
-.idea/
+.idea/outputs/**
+!outputs/
+!outputs/figures/
+!outputs/figures/**
+!outputs/tables/
+!outputs/tables/**
