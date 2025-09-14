@@ -4,38 +4,39 @@ Call:
 glm(formula = trstplt_binary ~ ., family = "binomial", data = train)
 
 Coefficients:
-                  Estimate Std. Error z value Pr(>|z|)
-(Intercept)     -3.032e+02  7.382e+04  -0.004    0.997
-nwspol           1.931e-04  4.974e+01   0.000    1.000
-ppltrst          6.733e-03  2.347e+03   0.000    1.000
-trstlgl          4.896e-02  3.236e+03   0.000    1.000
-trstplt          4.683e+01  8.573e+03   0.005    0.996
-stfdem           5.249e-02  4.321e+03   0.000    1.000
-stfedu          -1.317e-03  3.092e+03   0.000    1.000
-gincdif          1.879e-02  4.662e+03   0.000    1.000
-gndr             1.402e-01  8.726e+03   0.000    1.000
-agea            -4.199e-03  2.337e+02   0.000    1.000
-emplrel          4.142e-02  4.225e+03   0.000    1.000
-hinctnta        -3.512e-02  1.751e+03   0.000    1.000
-stfeco           1.343e-02  3.150e+03   0.000    1.000
-medcrgvc        -4.533e-02  2.609e+03   0.000    1.000
-regionCH02       9.058e-02  1.290e+04   0.000    1.000
-regionCH03      -1.290e-01  1.434e+04   0.000    1.000
-regionCH04       2.644e-01  1.456e+04   0.000    1.000
-regionCH05       7.774e-02  1.594e+04   0.000    1.000
-regionCH06      -3.266e-01  1.595e+04   0.000    1.000
-regionCH07      -1.762e-01  2.431e+04   0.000    1.000
-fairelc         -5.461e-02  4.303e+03   0.000    1.000
-lrscale         -9.122e-02  2.354e+03   0.000    1.000
-education_group -1.960e-01  7.837e+03   0.000    1.000
+                  Estimate Std. Error z value Pr(>|z|)    
+(Intercept)     -9.3848785  1.1532219  -8.138 4.02e-16 ***
+nwspol           0.0002632  0.0009967   0.264  0.79172    
+ppltrst          0.1204681  0.0460016   2.619  0.00882 ** 
+trstlgl          0.5581582  0.0679022   8.220  < 2e-16 ***
+stfdem           0.3964360  0.0772283   5.133 2.85e-07 ***
+stfedu           0.1653823  0.0607723   2.721  0.00650 ** 
+gincdif          0.0691439  0.0863918   0.800  0.42351    
+gndr             0.4109383  0.1781255   2.307  0.02105 *  
+agea             0.0007211  0.0048695   0.148  0.88227    
+emplrel         -0.0230347  0.0791036  -0.291  0.77090    
+hinctnta        -0.0831864  0.0346029  -2.404  0.01622 *  
+stfeco           0.1342635  0.0665246   2.018  0.04356 *  
+medcrgvc        -0.0203339  0.0506405  -0.402  0.68803    
+regionCH02      -0.0850808  0.2668397  -0.319  0.74984    
+regionCH03      -0.1461817  0.2946545  -0.496  0.61982    
+regionCH04      -0.1364091  0.2960556  -0.461  0.64497    
+regionCH05      -0.6216100  0.3126248  -1.988  0.04677 *  
+regionCH06      -0.8476960  0.3291230  -2.576  0.01001 *  
+regionCH07      -0.2223441  0.4988989  -0.446  0.65584    
+fairelc         -0.0445575  0.0740831  -0.601  0.54754    
+lrscale         -0.0542371  0.0457405  -1.186  0.23572    
+education_group -0.2636771  0.1499570  -1.758  0.07869 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 1.1164e+03  on 840  degrees of freedom
-Residual deviance: 4.3478e-08  on 818  degrees of freedom
-AIC: 46
+    Null deviance: 1116.39  on 840  degrees of freedom
+Residual deviance:  843.54  on 819  degrees of freedom
+AIC: 887.54
 
-Number of Fisher Scoring iterations: 25
+Number of Fisher Scoring iterations: 5
 
 
 === Decision Tree CP Table ===
@@ -45,50 +46,50 @@ rpart(formula = trstplt_binary ~ ., data = train, method = "class",
     cp = cfg$models$tree_cp %||% 0.015)
 
 Variables actually used in tree construction:
-[1] trstplt
+[1] agea    gndr    nwspol  ppltrst stfdem  stfeco  trstlgl
 
 Root node error: 319/841 = 0.37931
 
 n= 841 
 
-     CP nsplit rel error xerror    xstd
-1 1.000      0         1      1 0.04411
-2 0.015      1         0      0 0.00000
+        CP nsplit rel error  xerror     xstd
+1 0.141066      0   1.00000 1.00000 0.044110
+2 0.119122      1   0.85893 1.01254 0.044216
+3 0.015674      2   0.73981 0.77429 0.041405
+4 0.015000      8   0.63636 0.71787 0.040467
 
 === Random Forest Importance ===
-                          0             1 MeanDecreaseAccuracy
-nwspol            1.9529575   2.545753357            3.3187499
-ppltrst          -0.6270148   4.127596804            2.3856746
-trstlgl           6.9706186  10.499668544           12.2573297
-trstplt         111.2961859 136.365605123          134.6642237
-stfdem            2.6166771   7.852455962            8.3180195
-stfedu            0.7932687   4.818780140            4.7030359
-gincdif          -1.3011130  -1.195087024           -1.8006568
-gndr              1.7960399   1.025697837            1.9227874
-agea              0.6341765  -0.536014968            0.1382893
-emplrel          -1.0021269   0.003621014           -0.8029703
-hinctnta         -0.3361953   0.769122079            0.2441127
-stfeco            3.2440443   2.172947120            3.7015199
-medcrgvc         -1.0570368   1.545110394            0.4257258
-region           -0.5935929   1.306139618            0.5191841
-fairelc          -0.3900804   0.878418303            0.3853409
-lrscale           0.6434827   1.736103545            1.6066900
-education_group  -0.2528194   2.166490497            1.1153174
+                         0          1 MeanDecreaseAccuracy
+nwspol           1.6280141  1.0102312            1.8943524
+ppltrst          3.7724669  4.9161701            6.2905056
+trstlgl         21.9790592 31.1999898           36.4335003
+stfdem           8.7958726 24.3181521           22.7188231
+stfedu           4.4957486 10.9353894           10.5582968
+gincdif         -2.0461516  0.2201307           -1.2088811
+gndr             5.7963116  1.6731498            5.3763376
+agea            -0.9253948 -1.6713148           -1.8852595
+emplrel          1.0345960 -2.0908090           -0.6441065
+hinctnta         1.0893993 -1.8004438           -0.3435544
+stfeco           4.0016029  5.7415327            7.0066556
+medcrgvc        -1.0827585  2.0400744            0.4970675
+region           2.4235018  0.4652363            2.0783294
+fairelc         -1.7213568  2.3894958            0.2252690
+lrscale         -0.1127893  2.7615558            1.8484447
+education_group  2.2273202 -0.0852948            1.8373165
                 MeanDecreaseGini
-nwspol                  3.950304
-ppltrst                 5.969387
-trstlgl                24.659798
-trstplt               303.336742
-stfdem                 16.347588
-stfedu                  6.806921
-gincdif                 1.977426
-gndr                    1.325013
-agea                    5.660088
-emplrel                 1.195991
-hinctnta                3.849487
-stfeco                  5.860552
-medcrgvc                3.761455
-region                  3.287903
-fairelc                 2.244708
-lrscale                 3.554981
-education_group         1.601704
+nwspol                 26.713635
+ppltrst                28.359453
+trstlgl                57.704406
+stfdem                 40.051070
+stfedu                 25.848987
+gincdif                14.929267
+gndr                    8.478410
+agea                   39.321913
+emplrel                 7.879565
+hinctnta               26.842444
+stfeco                 23.709372
+medcrgvc               22.642403
+region                 21.940054
+fairelc                15.019609
+lrscale                24.810757
+education_group        10.755196
