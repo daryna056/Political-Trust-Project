@@ -2,3 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+
+outputs/**
+!outputs/
+!outputs/figures/
+!outputs/figures/**
+!outputs/tables/
+!outputs/tables/**
