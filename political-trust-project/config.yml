@@ -1,5 +1,5 @@
 # Config for Political Trust project
-data_file: "data/PT data set.xlsx"   # put your file into data/ and update name if needed
+data_file: "data/data set copy.xlsx"   # put your file into data/ and update name if needed
 seed: 123
 psm:
   caliper: 0.1
