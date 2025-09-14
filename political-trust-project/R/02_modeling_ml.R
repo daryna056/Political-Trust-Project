@@ -11,6 +11,9 @@ library(pROC)
 library(here)
 library(yaml)
 
+dir.create(here::here("outputs","figures"), recursive = TRUE, showWarnings = FALSE)
+dir.create(here::here("outputs","tables"),  recursive = TRUE, showWarnings = FALSE)
+
 cfg <- yaml::read_yaml(here::here("config.yml"))
 set.seed(cfg$seed %||% 123)
 

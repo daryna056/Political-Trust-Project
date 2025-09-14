@@ -24,16 +24,20 @@ df <- df %>% mutate(across(everything(), ~ ifelse(. %in% fake_missing_values, NA
 df <- df %>% mutate(trstplt_binary = factor(ifelse(trstplt >= 7, 1, 0), levels = c(0,1)))
 
 # Education recode (coarser version)
-education_group <- case_when(
-  edlvdch %in% 1:5   ~ "Basic Education",
-  edlvdch %in% 6:16  ~ "Secondary/Vocational",
-  edlvdch %in% 17:23 ~ "Higher Education",
-  TRUE ~ NA_character_
-)
-df$education_group <- as.numeric(factor(education_group,
-  levels = c("Basic Education", "Secondary/Vocational", "Higher Education"),
-  ordered = TRUE
-))
+df <- df %>%
+  mutate(
+    education_group = case_when(
+      edlvdch %in% 1:5   ~ "Basic Education",
+      edlvdch %in% 6:16  ~ "Secondary/Vocational",
+      edlvdch %in% 17:23 ~ "Higher Education",
+      TRUE ~ NA_character_
+    ),
+    education_group = as.numeric(factor(
+      education_group,
+      levels = c("Basic Education", "Secondary/Vocational", "Higher Education"),
+      ordered = TRUE
+    ))
+  )
 
 # Keep a safe subset, drop some unused
 df <- df %>% select(-c(edlvdch, cntry))

@@ -1,0 +1,68 @@
+=== Logistic Regression Summary ===
+
+Call:
+glm(formula = trstplt_binary ~ ., family = "binomial", data = train)
+
+Coefficients:
+                  Estimate Std. Error z value Pr(>|z|)
+(Intercept)     -3.035e+02  5.933e+04  -0.005    0.996
+nwspol           5.733e-04  4.071e+01   0.000    1.000
+trstlgl         -5.774e-03  3.069e+03   0.000    1.000
+trstplt          4.679e+01  8.146e+03   0.006    0.995
+stfdem          -1.004e-02  3.792e+03   0.000    1.000
+stfedu           4.623e-02  2.835e+03   0.000    1.000
+agea            -2.619e-03  2.162e+02   0.000    1.000
+hinctnta        -4.702e-02  1.628e+03   0.000    1.000
+stfeco           1.319e-02  3.066e+03   0.000    1.000
+medcrgvc        -3.093e-02  2.327e+03   0.000    1.000
+education_group -6.602e-02  6.694e+03   0.000    1.000
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1.1635e+03  on 876  degrees of freedom
+Residual deviance: 4.7198e-08  on 866  degrees of freedom
+AIC: 22
+
+Number of Fisher Scoring iterations: 25
+
+
+=== Decision Tree CP Table ===
+
+Classification tree:
+rpart(formula = trstplt_binary ~ ., data = train, method = "class", 
+    cp = cfg$models$tree_cp %||% 0.015)
+
+Variables actually used in tree construction:
+[1] trstplt
+
+Root node error: 332/877 = 0.37856
+
+n= 877 
+
+     CP nsplit rel error xerror     xstd
+1 1.000      0         1      1 0.043264
+2 0.015      1         0      0 0.000000
+
+=== Random Forest Importance ===
+                          0           1 MeanDecreaseAccuracy
+nwspol            1.3314508   1.6783904            1.9809132
+trstlgl           4.4913734   8.7201495            9.8543474
+trstplt         150.3069109 224.8929841          203.1493782
+stfdem            2.6373654   6.8286676            6.9377189
+stfedu            0.7047244   5.4537578            5.0553137
+agea              1.6390586   0.3124097            1.4592837
+hinctnta          1.0121078  -0.5737115            0.3296948
+stfeco            1.5835196   1.1366454            1.8954198
+medcrgvc          2.1269065   3.0201290            3.7358531
+education_group  -1.3132676  -0.4473333           -1.2293001
+                MeanDecreaseGini
+nwspol                  3.211804
+trstlgl                19.759611
+trstplt               347.377548
+stfdem                 18.152719
+stfedu                  6.281663
+agea                    4.829058
+hinctnta                2.713671
+stfeco                  5.289316
+medcrgvc                3.464994
+education_group         1.324244
