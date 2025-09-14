@@ -3,7 +3,10 @@
 .RData
 .Ruserdata
 
+# Ignore everything under outputs...
 outputs/**
+
+# ...but keep these folders and files
 !outputs/
 !outputs/figures/
 !outputs/figures/**
