@@ -43,13 +43,11 @@ _Reproducible R project to study determinants of **political trust** and the cau
 ---
 
 ## Results Preview
-> These render from the committed images.
+> These render automatically if present under `political-trust-project/outputs/figures/`.
 
-<p align="left">
-  <img src="https://raw.githubusercontent.com/daryna056/political-trust-project/main/outputs/figures/roc_all_models.png" width="400" alt="ROC: all models" />
-  <img src="https://raw.githubusercontent.com/daryna056/political-trust-project/main/outputs/figures/rf_var_importance.png" width="400" alt="RF Variable Importance" />
-  <img src="https://raw.githubusercontent.com/daryna056/political-trust-project/main/outputs/figures/psm_love_plot.png" width="400" alt="PSM Love Plot" />
-</p>
+![ROC: all models](political-trust-project/outputs/figures/roc_all_models.png)
+![RF Variable Importance](political-trust-project/outputs/figures/rf_var_importance.png)
+![PSM Love Plot](political-trust-project/outputs/figures/psm_love_plot.png)
 
 
 
