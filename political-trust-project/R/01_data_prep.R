@@ -40,7 +40,8 @@ df <- df %>%
   )
 
 # Keep a safe subset, drop some unused
-df <- df %>% select(-c(edlvdch, cntry))
+df <- df %>% dplyr::select(-tidyselect::any_of(c("edlvdch", "cntry")))
+
 
 # Save prepped data
 dir.create(here::here("outputs"), showWarnings = FALSE)

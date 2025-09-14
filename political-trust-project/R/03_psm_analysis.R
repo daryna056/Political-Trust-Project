@@ -14,12 +14,26 @@ set.seed(cfg$seed %||% 123)
 
 df <- readRDS(here::here("outputs","prepped.rds"))
 
-# Treatment: high legal trust (trstlgl >= 8)
+# Covariates we want (will keep only those that actually exist)
+covars <- c("agea","gndr","education_group","stfeco","ppltrst","hinctnta","lrscale","stfdem")
+
 df_psm <- df %>%
-  mutate(treatment_legaltrust = ifelse(trstlgl >= 8, 1, 0)) %>%
-  select(trstplt_binary, treatment_legaltrust, agea, gndr, education_group,
-         stfeco, ppltrst, hinctnta, lrscale, stfdem) %>%
-  na.omit()
+  dplyr::mutate(treatment_legaltrust = ifelse(trstlgl >= 8, 1, 0)) %>%
+  dplyr::select(tidyselect::any_of(c("trstplt_binary","treatment_legaltrust", covars))) %>%
+  tidyr::drop_na()
+
+# Keep only covariates present in the data (avoids formula errors if a column is missing)
+covars_present <- intersect(covars, names(df_psm))
+form <- as.formula(paste("treatment_legaltrust ~", paste(covars_present, collapse = " + ")))
+
+m <- matchit(
+  form,
+  data = df_psm,
+  method = cfg$psm$method %||% "nearest",
+  distance = cfg$psm$distance %||% "logit",
+  caliper = cfg$psm$caliper %||% 0.1
+)
+
 
 m <- matchit(
   treatment_legaltrust ~ agea + gndr + education_group + stfeco + ppltrst + hinctnta + lrscale + stfdem,
