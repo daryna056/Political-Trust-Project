@@ -1,0 +1,27 @@
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Rapp.history
+.Rproj.user/
+.Rprofile
+
+# renv
+renv/library/
+renv/staging/
+renv.lock
+
+# Data & outputs (keep figures/tables tracked if desired)
+data/*
+!data/README.md
+outputs/*
+!outputs/figures/
+!outputs/tables/
+!outputs/README.md
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
