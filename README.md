@@ -43,11 +43,10 @@ _Reproducible R project to study determinants of **political trust** and the cau
 ---
 
 ## Results Preview
-> These render automatically if present under `outputs/figures/`.
+outputs/figures/roc_all_models.png
+outputs/figures/rf_var_importance.png
+outputs/figures/psm_love_plot.png
 
-![ROC Curves](outputs/figures/roc_all_models.png)
-![RF Variable Importance](outputs/figures/rf_var_importance.png)
-![PSM Love Plot](outputs/figures/psm_love_plot.png)
 
 ---
 
