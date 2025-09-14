@@ -1,0 +1,2 @@
+McFadden: 0.228518 
+Cox & Snell: 0.2689849 

@@ -1,0 +1,19 @@
+---------------------------------------------------- 
+Test for		X2	df	probability 
+---------------------------------------------------- 
+Omnibus			214.99	108	0
+nwspol			19.91	9	0.02
+ppltrst			8.78	9	0.46
+trstlgl			15.98	9	0.07
+stfdem			23.88	9	0
+stfedu			8.07	9	0.53
+gndr2			15.55	9	0.08
+agea			9.07	9	0.43
+hinctnta		6.07	9	0.73
+stfeco			12.65	9	0.18
+medcrgvc		27.06	9	0
+education_group	9.07	9	0.43
+fairelc			10.1	9	0.34
+---------------------------------------------------- 
+
+H0: Parallel Regression Assumption holds

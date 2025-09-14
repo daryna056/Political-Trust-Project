@@ -1,0 +1,6 @@
+         nwspol         ppltrst         trstlgl          stfdem 
+       1.029834        1.085051        1.181915        1.295802 
+         stfedu            gndr            agea        hinctnta 
+       1.088883        1.064787        1.088082        1.175007 
+         stfeco        medcrgvc education_group         fairelc 
+       1.276918        1.167849        1.107670        1.123039 
