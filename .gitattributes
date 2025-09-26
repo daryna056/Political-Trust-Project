@@ -1,2 +1,19 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Normalize line endings for text files
+*.R text eol=lf
+*.Rmd text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+Makefile text eol=lf
+
+# Treat images as binary (no diffs)
+*.png binary
+*.jpg binary
+*.jpeg binary
+
+# Lock renv.lock to avoid merge conflicts
+renv.lock merge=union
+
+# Optional: mark R scripts for linguist (GitHub language stats)
+*.R linguist-language=R
