@@ -1,14 +1,13 @@
-.Rproj.user
+# Ignore data and renv library
+data/
+renv/library/
+
+# RStudio and system files
 .Rhistory
 .RData
-.Ruserdata
+.Rproj.user/
+.DS_Store
 
-# Ignore everything under outputs...
-outputs/**
-
-# ...but keep these folders and files
-!outputs/
-!outputs/figures/
-!outputs/figures/**
-!outputs/tables/
-!outputs/tables/**
+# Outputs
+outputs/figures/
+outputs/tables/
