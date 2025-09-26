@@ -53,9 +53,14 @@ res_logit <- evaluate_model("Logistic Regression", logit_probs, logit_preds, tes
 
 # Decision Tree
 tree_model <- rpart(trstplt_binary ~ ., data = train, method = "class", cp = cfg$models$tree_cp %||% 0.015)
-png(here::here("outputs","figures","decision_tree.png"), width=1000, height=800, res=130)
-rpart.plot(tree_model, main = "Decision Tree")
-dev.off()
+tryCatch({
+  png(here::here("outputs","figures","decision_tree.png"), width=1000, height=800, res=130)
+  rpart.plot(tree_model, main = "Decision Tree")
+  dev.off()
+}, error = function(e) {
+  message("Decision tree plot failed: ", e$message)
+  try(dev.off(), silent = TRUE)
+})
 tree_probs <- predict(tree_model, test)[,2]
 tree_preds <- ifelse(tree_probs > threshold, 1, 0)
 res_tree <- evaluate_model("Decision Tree", tree_probs, tree_preds, test$trstplt_binary, "tree")
