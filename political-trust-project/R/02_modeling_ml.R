@@ -99,8 +99,13 @@ print(importance(rf_model))
 sink()
 
 # Save var importance plot
-png(here::here("outputs","figures","rf_var_importance.png"), width=1000, height=800, res=130)
-varImpPlot(rf_model, main = "Random Forest - Variable Importance")
-dev.off()
+tryCatch({
+  png(here::here("outputs","figures","rf_var_importance.png"), width=1000, height=800, res=130)
+  varImpPlot(rf_model, main = "Random Forest - Variable Importance")
+  dev.off()
+}, error = function(e) {
+  message("Variable importance plot failed: ", e$message)
+  try(dev.off(), silent = TRUE)
+})
 
 message("ML analysis complete. Figures and summaries saved to outputs/.")
