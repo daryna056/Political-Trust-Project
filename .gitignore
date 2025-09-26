@@ -1,13 +1,15 @@
-# Ignore data and renv library
-data/
+# Ignore generated figures and tables
+outputs/figures/
+outputs/tables/
+
+# Optional: ignore all outputs
+# outputs/
+
+# Ignore renv library (but keep renv.lock)
 renv/library/
 
-# RStudio and system files
+# Ignore local RStudio and system files
 .Rhistory
 .RData
 .Rproj.user/
 .DS_Store
-
-# Outputs
-outputs/figures/
-outputs/tables/
