@@ -48,9 +48,14 @@ s <- summary(m)
 sink(here::here("outputs","tables","psm_balance_summary.txt")); print(s); sink()
 
 # Love plot
-png(here::here("outputs","figures","psm_love_plot.png"), width=1000, height=800, res=130)
-love.plot(m, binary = "std", abs = TRUE, var.order = "unadjusted")
-dev.off()
+tryCatch({
+  png(here::here("outputs","figures","psm_love_plot.png"), width=1000, height=800, res=130)
+  love.plot(m, binary = "std", abs = TRUE, var.order = "unadjusted")
+  dev.off()
+}, error = function(e) {
+  message("Love plot failed: ", e$message)
+  try(dev.off(), silent = TRUE)  # Ensure device closes even if plot fails
+})
 
 # ATT estimation on matched data
 matched <- match.data(m)

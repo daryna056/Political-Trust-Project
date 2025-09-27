@@ -1,14 +1,15 @@
-.Rproj.user
+# Ignore generated figures and tables
+outputs/figures/
+outputs/tables/
+
+# Optional: ignore all outputs
+# outputs/
+
+# Ignore renv library (but keep renv.lock)
+renv/library/
+
+# Ignore local RStudio and system files
 .Rhistory
 .RData
-.Ruserdata
-
-# Ignore everything under outputs...
-outputs/**
-
-# ...but keep these folders and files
-!outputs/
-!outputs/figures/
-!outputs/figures/**
-!outputs/tables/
-!outputs/tables/**
+.Rproj.user/
+.DS_Store
