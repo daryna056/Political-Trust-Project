@@ -9,8 +9,6 @@
 
 # renv
 renv/library/
-renv/staging/
-renv.lock
 
 # Data & outputs (keep figures/tables tracked if desired)
 data/*
